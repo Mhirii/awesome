@@ -32,25 +32,29 @@ func main() {
 	}
 
 	var mode string
-	if numMonitors > 1 {
-		mode = "dual"
-	} else {
+	if numMonitors == 1 {
 		mode = "single"
+		dataFile = filepath.Join(configDir, "singleData.toml")
+		wallpaperDir = filepath.Join(configDir, "wallpapers/single")
+	} else {
+		mode = "dual"
+		dataFile = filepath.Join(configDir, "dualData.toml")
+		wallpaperDir = filepath.Join(configDir, "wallpapers/dual")
 	}
 
 	// mode := os.Args[1]
 
-	switch mode {
-	case "dual":
-		dataFile = filepath.Join(configDir, "dualData.toml")
-		wallpaperDir = filepath.Join(configDir, "wallpapers/dual")
-	case "single":
-		dataFile = filepath.Join(configDir, "singleData.toml")
-		wallpaperDir = filepath.Join(configDir, "wallpapers/single")
-	default:
-		fmt.Println("Usage: setWallpaper [dual|single]")
-		return
-	}
+	// switch mode {
+	// case "dual":
+	// 	dataFile = filepath.Join(configDir, "dualData.toml")
+	// 	wallpaperDir = filepath.Join(configDir, "wallpapers/dual")
+	// case "single":
+	// 	dataFile = filepath.Join(configDir, "singleData.toml")
+	// 	wallpaperDir = filepath.Join(configDir, "wallpapers/single")
+	// default:
+	// 	fmt.Println("Usage: setWallpaper [dual|single]")
+	// 	return
+	// }
 
 	// Initialize data structure
 	data := &WallpaperData{}
@@ -110,7 +114,7 @@ func getNumberOfMonitors() (int, error) {
 	lines := strings.Split(string(output), "\n")
 
 	// The number of monitors is the number of lines excluding the header line
-	numMonitors := len(lines) - 1
+	numMonitors := len(lines) - 2
 
 	return numMonitors, nil
 }
