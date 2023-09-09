@@ -36,7 +36,7 @@ awful_keyboard.append_global_keybindings {
     { modkey }, "F4", function()
     awesome.emit_signal("exit_screen::show")
     end, {
-        description = "color picker",
+        description = "show exit screen",
         group = "awesome"
     }
 ), awful_key(
@@ -84,7 +84,7 @@ awful_keyboard.append_global_keybindings {
 ),
     awful_key(
         { modkey }, "w", function()
-            spawn.with_shell("$HOME/Scripts/change_wallpaper.sh")
+            spawn.with_shell("$HOME/.config/awesome/rice/setWallpaper")
         end, {
             description = "change wallpaper",
             group = "awesome"
@@ -164,7 +164,7 @@ awful_keyboard.append_global_keybindings {
     end
 ), awful_key(
     { modkey }, "r", function()
-        spawn.with_shell("rofi -show drun")
+        spawn.with_shell("rofi -show drun -config ~/.config/awesome/rice/rofi/config.rasi")
     end, {
         description = "open rofi",
         group = "launcher"

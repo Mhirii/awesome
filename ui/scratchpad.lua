@@ -11,12 +11,12 @@ local anim_y = rubato.timed {
 }
 
 local ytm_scratchpad = bling.module.scratchpad {
-    command = "youtube-music",
+    command = "spotify",
     rule = {
-        instance = "youtube music"
+        instance = "spotify"
     },
     sticky = true,
-    autoclose = true,
+    autoclose = false,
     floating = true,
     reapply = true,
     dont_focus_before_close = false,
