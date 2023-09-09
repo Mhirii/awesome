@@ -1,0 +1,31 @@
+#!/bin/sh
+
+start() {
+  if ! pgrep -f $1 ;
+  then
+    "$@"&
+  fi
+}
+
+# load X colors
+start xrdb $HOME/.Xresources
+# start xrdb $HOME/.cache/wal/colors.Xresources
+
+# apps
+start "$HOME/.screenlayout/dual.sh"
+start redshift -l -19:-65
+start /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+start nm-applet
+start blueman-applet
+start /usr/bin/diodon
+# start ulauncher --hide-window
+start feh --bg-fill --no-xinerama --recursive -z "$HOME/Pictures/Wallpapers/dual/"
+start udisksctl mount -b /dev/sda3
+# start fusuma -d
+
+# pause mpv if there are open windows
+start $HOME/.config/awesome/configuration/pause_videowallpaper
+
+# compositor
+# start picom --config=$HOME/.config/awesome/theme/picom.conf
+start picom --config ~/.config/picom/picom-animations.conf
