@@ -96,7 +96,7 @@ theme.client_border_radius = dpi(4)
 theme.widget_radius = theme.border_radius
 
 -- Titlebars
-theme.titlebar_enabled = false
+theme.titlebar_enabled = true
 
 -- Tooltip
 theme.tooltip_bg = theme.black

@@ -9,7 +9,6 @@ start() {
 
 # load X colors
 start xrdb $HOME/.Xresources
-# start xrdb $HOME/.cache/wal/colors.Xresources
 
 # apps
 start "$HOME/.screenlayout/dual.sh"
@@ -18,8 +17,7 @@ start /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 start nm-applet
 start blueman-applet
 start /usr/bin/diodon
-# start ulauncher --hide-window
-start feh --bg-fill --no-xinerama --recursive -z "$HOME/Pictures/Wallpapers/dual/"
+start "$HOME/.config/awesome/rice/setWallpaper"
 start udisksctl mount -b /dev/sda3
 # start fusuma -d
 

@@ -521,6 +521,14 @@ client.connect_signal(
                     description = "toggle fullscreen",
                     group = "client"
                 }
+      ), awful_key(
+                { modkey, shift }, "Up", function(c)
+                    c.maximized = not c.maximized
+                    c:raise()
+                end, {
+                    description = "toggle maximized",
+                    group = "client"
+                }
             ), awful_key(
             { modkey }, "f", awful.client.floating.toggle, {
                 description = "toggle floating",
